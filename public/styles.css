@@ -1,0 +1,546 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+    margin: 0;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh; /* Asegura que el contenedor use toda la altura del viewport */
+}
+
+
+/* Estilos para la barra de navegación superior */
+.top-navbar {
+    background-color: #333;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+}
+
+/* Contenedor para el elemento de información del usuario y el menú de navegación */
+.top-navbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Contenedor para el elemento de información del usuario */
+.user-info-container {
+    margin-right: auto; /* Empuja el contenedor hacia la izquierda */
+    margin-left: 20px; /* Espacio a la izquierda del contenedor */
+}
+
+/* Estilo para el elemento de información del usuario */
+#user-info {
+    color: white;
+    padding: 14px 20px;
+    background-color: #444; /* Color de fondo para diferenciar el área del usuario */
+    border: 2px solid #666; /* Borde para el elemento de usuario */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra de borde */
+    margin: 0; /* Asegura que no haya margen */
+}
+
+/* Estilos para los elementos del menú de navegación */
+.top-navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.top-navbar ul li {
+    margin: 0 15px;
+}
+
+.top-navbar ul li a, .top-navbar ul li button {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.top-navbar ul li a:hover, .top-navbar ul li button:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Estilos para la barra de navegación lateral izquierda */
+.sidebar {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    top: 50px; /* Ajustar para que no se superponga con la barra superior */
+    left: 0;
+    background-color: #333;
+    padding-top: 20px;
+    z-index: 999; /* Asegurarse de que esté debajo de la barra superior */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 20px;
+    padding: 2px;
+    text-align: center;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
+    display: block;
+}
+
+.sidebar ul li a:hover {
+    background-color: #575757;
+    color: white;
+}
+
+/* Estilo general para el contenido */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 220px;
+    margin-top: 60px;
+}
+
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+
+/* Estilos para los botones de Todos los Cursos y Mis Cursos */
+button#all-courses-tab, button#my-courses-tab, button#create-course-btn, button#all-divisions-tab {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+button#all-courses-tab:hover, button#my-courses-tab:hover, button#create-course-btn:hover, button#all-divisions-tab:hover {
+    background-color: #45a049;
+}
+
+button[id^="remove-button-"] {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+button[id^="remove-button-"]:hover {
+    background-color: darkred;
+}
+
+button.accept-btn {
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button.reject-btn {
+    background-color: #f44336; /* Rojo */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* Estilo para el contenedor de controles (botones y búsqueda) */
+.controls-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Estilo para los botones */
+.buttons-container {
+    display: flex;
+    gap: 10px; /* Espacio entre los botones */
+}
+
+/* Estilo para la barra de búsqueda */
+.search-container {
+    display: flex;
+    gap: 10px; /* Espacio entre el campo de búsqueda y el botón */
+    align-items: center; /* Alinear verticalmente el campo de búsqueda y el botón */
+}
+
+/* Estilo para la barra de búsqueda */
+.search-container input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    width: 250px; /* Ajustar el ancho según sea necesario */
+}
+
+.search-container button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+.search-container button:hover {
+    background-color: #45a049;
+}
+
+/* Estilo para la sección de cursos */
+.courses-section {
+    margin-top: 20px;
+}
+
+/* Estilo de la cuadrícula de cursos */
+.courses-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espacio entre los cursos */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Estilo de las tarjetas de curso */
+.course-item {
+    width: 350px; /* Ancho fijo de las tarjetas */
+    height: 250px; /* Alto fijo de las tarjetas */
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Espacio entre contenido y fondo */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.course-item h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+.course-item p {
+    margin: 5px 0;
+}
+
+.course-item button {
+    padding: 10px 15px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.enroll-button {
+    background-color: #28a745;
+    color: white;
+}
+
+.enroll-button:hover {
+    background-color: #218838;
+}
+
+.edit-button {
+    background-color: #007bff;
+    color: white;
+}
+
+.edit-button:hover {
+    background-color: #0056b3;
+}
+
+.delete-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+/* Estilo para el estado de inscripción */
+.enrollment-status {
+    font-size: 14px;
+    font-weight: bold;
+    color: #4CAF50; /* Verde para el estado inscrito */
+    margin-top: 10px;
+}
+
+/* Estilos del modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Posición fija en pantalla */
+    z-index: 1; /* Por encima de otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Deshabilitar el scroll */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Contenido del modal */
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Ancho del modal */
+    max-width: 600px; /* Ancho máximo */
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Estilos del botón de cerrar */
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilos del formulario */
+.modal form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal form label,
+.modal form input,
+.modal form select,
+.modal form button {
+    margin: 10px 0;
+}
+
+.modal form input,
+.modal form select {
+    padding: 10px;
+    width: calc(100% - 20px); /* Ajustar ancho */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.modal form button {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.modal form button:hover {
+    background-color: #45a049;
+}
+
+.modal form .checkbox-container {
+    display: flex;
+    align-items: center;
+}
+
+.modal form .checkbox-container input {
+    margin-right: 10px;
+}
+
+/* Estilo de las tarjetas de divisiones */
+.division-card {
+    width: 350px; /* Ancho fijo de las tarjetas */
+    height: 150px; /* Alto fijo de las tarjetas */
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Espacio entre contenido y fondo */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.division-card h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+.division-card p {
+    margin: 5px 0;
+}
+
+.endpoint-detail {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.endpoint-detail h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.endpoint-detail p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.endpoint-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.endpoint-info div {
+    width: 48%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.endpoint-info h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.endpoint-info pre {
+    background-color: #f7f7f7;
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    padding: 10px;
+    overflow: auto;
+    max-height: 150px;
+    font-size: 14px;
+}
+
+.endpoint-response {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.endpoint-response h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.endpoint-response pre {
+    background-color: #f7f7f7;
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    padding: 10px;
+    overflow: auto;
+    max-height: 350px;
+    font-size: 14px;
+}
+
+.endpoint-method-path, .endpoint-parameters-headers {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.endpoint-method, .endpoint-path, .endpoint-parameters, .endpoint-headers, .endpoint-body, .endpoint-response, .endpoint-error {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.endpoint-method, .endpoint-path, .endpoint-parameters, .endpoint-headers {
+    flex: 1;
+    min-width: 250px; /* Aumenta el ancho mínimo */
+}
+
+.endpoint-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.endpoint-left-column {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.endpoint-right-column {
+    flex: 1;
+}
+
+.endpoint-image {
+    max-width: 100%;
+    height: auto;
+}

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Cursos y Estudiantes</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Navbar superior -->
+        <nav class="top-navbar">
+            <div class="top-navbar-content">
+                <div class="user-info-container">
+                    <div id="user-info">Nombre de Usuario</div>
+                </div>
+                <ul>
+                    <li><a href="#courses">Cursos</a></li>
+                    <li><a href="#divisions">Divisiones</a></li>
+                    <!-- Enlace para iniciar sesión -->
+                    <li><a id="login-link" href="#login">Iniciar sesión</a></li>
+                    <!-- Botón de cerrar sesión -->
+                    <li><button id="logout-button">Cerrar sesión</button></li>
+                </ul>
+        </nav>
+
+        <!-- Navbar lateral izquierda -->
+        <div class="sidebar">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#endpoints">Endpoints</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </div>
+
+        <!-- Contenido principal -->
+        <div class="main-content">
+            <!-- SIDEBAR -->
+            <div id="home" class="content-section">
+                <h1>Bienvenido a la gestión de cursos y estudiantes</h1>
+                <p>Seleccione una opción del menú para comenzar.</p>
+            </div>
+
+            <div id="endpoints" class="content-section">
+                <div class="endpoint-container">
+                    <div class="endpoint-left-column">
+                        <h1>Endpoints</h1>
+                        <div id="endpoint-list"></div>
+                    </div>
+                    <div class="endpoint-right-column">
+                        <img src="./GoEs_Logo.png" alt="GSoftware4All Logo App" class="endpoint-image">
+                    </div>
+                </div>
+                <div id="endpoint-detail" class="endpoint-detail">
+                    <h2 id="endpoint-title"></h2>
+                    <p id="endpoint-description"></p>
+                    <div class="endpoint-info">
+                        <div class="endpoint-method-path">
+                            <div class="endpoint-method">
+                                <h3>Método</h3>
+                                <pre id="endpoint-method"></pre>
+                            </div>
+                            <div class="endpoint-path">
+                                <h3>Endpoint</h3>
+                                <pre id="endpoint-path"></pre>
+                            </div>
+                        </div>
+                        <div class="endpoint-parameters-headers">
+                            <div class="endpoint-parameters">
+                                <h3>Parámetros</h3>
+                                <pre id="endpoint-parameters"></pre>
+                            </div>
+                            <div class="endpoint-headers">
+                                <h3>Encabezado</h3>
+                                <pre id="endpoint-headers"></pre>
+                            </div>
+                        </div>
+                        <div class="endpoint-body">
+                            <h3>Body</h3>
+                            <pre id="endpoint-body"></pre>
+                        </div>
+                    </div>
+                    <div class="endpoint-response">
+                        <h3>Respuesta</h3>
+                        <pre id="endpoint-response"></pre>
+                        <h3>Error</h3>
+                        <pre id="endpoint-error"></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div id="contact" class="content-section">
+                <h1>Contacto</h1>
+                <p>Puedes contactarnos en example@example.com</p>
+            </div>
+
+            <!-- TOPBAR -->
+            <div id="courses" class="content-section">
+                <h1>Cursos</h1>
+                <p>Listado de cursos</p>
+                <div id="student-controls" class="controls-container">
+                    <div class="buttons-container">
+                        <button id="all-courses-tab">Todos los Cursos</button>
+                        <button id="my-courses-tab">Mis Cursos</button>
+                    </div>
+                    <div class="search-container">
+                        <input type="text" id="course-search" placeholder="Buscar cursos...">
+                        <button id="search-course-button">Buscar</button>
+                    </div>
+                </div>
+                <div id="professor-controls" class="controls-container hidden">
+                    <button id="create-course-btn">Crear Curso</button>
+                    <button id="view-pending-requests-btn">Ver Solicitudes Pendientes</button>
+                </div>
+                <div class="courses-section">
+                    <div id="courses-list" class="courses-grid">
+                        <!-- Aquí se cargarán todos los cursos -->
+                    </div>
+                    <div id="my-courses-list" class="courses-grid hidden">
+                        <!-- Aquí se cargarán los cursos del estudiante -->
+                    </div>
+                </div>
+            </div>
+
+            <div id="divisions" class="content-section">
+                <h1>Divisiones</h1>
+                <p>Listado de divisiones</p>
+                <div id="student-controls" class="controls-container">
+                    <div class="buttons-container">
+                        <button id="all-divisions-tab">Todas las divisiones</button>
+                    </div>
+                    <div class="search-container">
+                        <input type="text" id="division-search" placeholder="Buscar division...">
+                        <button id="search-division-button">Buscar</button>
+                    </div>
+                </div>
+                <div id="admin-controls" class="controls-container hidden">
+                    <button id="create-division-btn">Crear Division</button>
+                </div>
+                <div class="courses-section">
+                    <div id="divisions-list" class="courses-grid">
+                        <!-- Aquí se cargarán todos los cursos -->
+                    </div>
+                </div>
+            </div>
+            <div id="login" class="content-section">
+                <h1>Iniciar sesión</h1>
+                <form id="login-form">
+                    <label for="username">Usuario:</label>
+                    <input type="text" id="username" name="username">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password">
+                    <button type="submit">Iniciar sesión</button>
+                </form>
+                <div id="login-response"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal para Crear/Editar Curso -->
+    <div id="create-course-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn" id="close-create-course-modal">&times;</span>
+            <h2 id="modal-title">Crear Curso</h2>
+            <form id="create-course-form">
+                <label for="course-name">Nombre:</label>
+                <input type="text" id="course-name" required>
+
+                <label for="course-description">Descripción:</label>
+                <input type="text" id="course-description" required>
+
+                <label for="course-division">División:</label>
+                <select id="course-division" required></select>
+
+                <label for="course-duration">Duración:</label>
+                <input type="text" id="course-duration" required>
+
+                <div class="checkbox-container">
+                    <input type="checkbox" id="course-active">
+                    <label for="course-active">Activo</label>
+                </div>
+
+                <button type="submit">Guardar Curso</button>
+            </form>
+
+            <div id="students-list" class="hidden">
+                <h3>Estudiantes Inscritos</h3>
+                <ul id="students"></ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Ver Solicitudes Pendientes -->
+    <div id="pending-requests-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn" id="close-pending-requests-modal">&times;</span>
+            <h2>Solicitudes Pendientes</h2>
+            <ul id="pending-requests-list"></ul>
+        </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+
+</html>
