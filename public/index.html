@@ -31,7 +31,6 @@
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#endpoints">Endpoints</a></li>
-                <li><a href="#contact">Contacto</a></li>
             </ul>
         </div>
 
@@ -39,15 +38,253 @@
         <div class="main-content">
             <!-- SIDEBAR -->
             <div id="home" class="content-section">
-                <h1>Bienvenido a la gestión de cursos y estudiantes</h1>
-                <p>Seleccione una opción del menú para comenzar.</p>
+                <div id="container_home">
+                    <h1>Bienvenido al sistema gestor de cursos y estudiantes (SGDCYE)</h1>
+                    <p>El SGDCYE es una plataforma diseñada para facilitar la gestión de cursos, profesores y
+                        estudiantes. Esta aplicación proporciona una interfaz intuitiva para administrar todas las
+                        actividades relacionadas con el ciclo de vida de los cursos, desde la creación de divisiones
+                        hasta la inscripción y gestión de estudiantes.</p>
+                    <p>El sistema está estructurado para permitir una administración eficiente y segura, dividiendo las
+                        responsabilidades entre diferentes roles de usuario: Administrador, Profesor y Estudiante. A
+                        continuación se presenta una guía de uso para familiarizarte con el flujo de trabajo
+                        recomendado:</p>
+                    <h2>Guía de Uso</h2>
+                    <ol>
+                        <li>
+                            <h3>Creación de Divisiones</h3>
+                            <p>Como administrador, el primer paso es crear divisiones. Las divisiones permiten
+                                categorizar y organizar cursos y usuarios. Por ejemplo, puedes tener divisiones como
+                                "Humanidades", "Tecnologías de la Información", o "Lenguas Extranjeras".</p>
+                        </li>
+                        <li>
+                            <h3>Gestión de Profesores</h3>
+                            <p>Después de crear divisiones, el siguiente paso es crear cuentas de profesor y asignarlas
+                                a las divisiones correspondientes. Esto asegura que los profesores solo puedan gestionar
+                                cursos dentro de su división asignada.</p>
+                        </li>
+                        <li>
+                            <h3>Registro de Estudiantes</h3>
+                            <p>Con las divisiones y los profesores en su lugar, el siguiente paso es registrar a los
+                                estudiantes. Los estudiantes podrán ver y solicitar inscripción en los cursos
+                                disponibles dentro de las divisiones.</p>
+                        </li>
+                        <li>
+                            <h3>Creación de Cursos</h3>
+                            <p>Los profesores pueden iniciar sesión en la plataforma y crear cursos dentro de sus
+                                divisiones. Los cursos deben contener detalles como el nombre del curso, la descripción,
+                                y cualquier requisito necesario para la inscripción.</p>
+                        </li>
+                        <li>
+                            <h3>Inscripción en Cursos</h3>
+                            <p>Los estudiantes pueden iniciar sesión y ver los cursos disponibles. Pueden solicitar
+                                inscripción en los cursos de su interés. Los profesores recibirán estas solicitudes y
+                                tendrán la opción de aceptar o rechazar cada una de ellas.</p>
+                        </li>
+                    </ol>
+                    <p>Seleccione una opción del menú para comenzar.</p>
+
+                    <h2>Roles</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Rol</th>
+                                <th>Descripción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Administrador</td>
+                                <td>Realiza las acciones importantes y delicadas como registro de estudiantes,
+                                    profesores, cursos y divisiones.</td>
+                            </tr>
+                            <tr>
+                                <td>Profesor</td>
+                                <td>Pueden modificar y eliminar sus propios cursos. Pueden aceptar, denegar y/o eliminar
+                                    estudiantes de sus cursos. Están relacionados con los cursos que imparten.</td>
+                            </tr>
+                            <tr>
+                                <td>Estudiante</td>
+                                <td>Pueden ver los cursos y los que están inscritos. Pueden hacer solicitudes de
+                                    inscripción a cursos.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h2>Models</h2>
+                    <h3 class="container_home_h3">Cursos</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Campos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Cursos</td>
+                                <td>Información de los cursos creados en la plataforma</td>
+                                <td>
+                                    <ul>
+                                        <li><b>name:</b> Nombre del curso (obligatorio)</li>
+                                        <li><b>description:</b> Descripción del curso (opcional)</li>
+                                        <li><b>division:</b> División a la que pertenece el curso (obligatorio)</li>
+                                        <li><b>duration:</b> Duración del curso (en semanas, obligatorio)</li>
+                                        <li><b>isActive:</b> Booleano para indicar si el curso está activo (obligatorio)</li>
+                                        <li><b>createdAt:</b> Fecha de creación del curso (automática)</li>
+                                        <li><b>updatedAt:</b> Fecha de última actualización del curso (automática)</li>
+                                        <li><b>professor:</b> Referencia al profesor que imparte el curso (obligatorio)</li>
+                                        <li><b>students:</b> Lista de referencias a los estudiantes inscritos (opcional)</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3 class="container_home_h3">Divisiones</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Campos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Divisiones</td>
+                                <td>Puedes dividir estudiantes y profesores por divisiones académicas (p. ej., Ciencias
+                                    Sociales, Ciencias Naturales).</td>
+                                <td>
+                                    <ul>
+                                        <li><b>name:</b> Nombre de la división (obligatorio)</li>
+                                        <li><b>description:</b> Descripción de la división (opcional)</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3 class="container_home_h3">Usuarios</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Campos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Usuarios</td>
+                                <td>Se tiene solo la tabla de usuarios y aquí se dividen por rol: [student, profesor,
+                                    admin]. Solo el admin puede crear estudiantes y/o profesores.</td>
+                                <td>
+                                    <ul>
+                                        <li><b>name:</b> Nombre (obligatorio)</li>
+                                        <li><b>lname:</b> Apellido (obligatorio)</li>
+                                        <li><b>age:</b> Edad (obligatorio)</li>
+                                        <li><b>division:</b> Referencia a la división a la que pertenece (obligatorio)</li>
+                                        <li><b>email:</b> Correo electrónico (obligatorio y único)</li>
+                                        <li><b>password:</b> Contraseña (obligatoria, se encripta con bcrypt)</li>
+                                        <li><b>role:</b> Rol en el sistema (obligatorio)</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3 class="container_home_h3">Roles</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Campos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Roles</td>
+                                <td>Roles de usuario en el sistema</td>
+                                <td>
+                                    <ul>
+                                        <li><b>name:</b> nombre del rol</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3 class="container_home_h3">EnrollmentRequest</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Campos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>EnrollmentRequest</td>
+                                <td>Solicitudes de inscripción a cursos</td>
+                                <td>
+                                    <ul>
+                                        <li><b>course:</b> Referencia al curso al que se desea inscribir el estudiante</li>
+                                        <li><b>student:</b> Referencia al estudiante que solicita la inscripción</li>
+                                        <li><b>status:</b> Estado de la solicitud (pendiente, aceptada, rechazada)</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
             <div id="endpoints" class="content-section">
+                <div class="endpoint-middle-column">
+                    <h1>Flujo Recomendado</h1>
+                    <p>El SGDCYE es una plataforma diseñada para facilitar la gestión de cursos, profesores y
+                        estudiantes. A continuación se presenta el flujo de trabajo recomendado para usar la
+                        aplicación:</p>
+                    <ol>
+                        <li>
+                            <h3>Creación de Divisiones</h3>
+                            <p>Como administrador, el primer paso es crear divisiones. Las divisiones permiten
+                                categorizar y organizar cursos y usuarios. Por ejemplo, puedes tener divisiones como
+                                "Humanidades", "Tecnologías de la Información", o "Lenguas Extranjeras".</p>
+                        </li>
+                        <li>
+                            <h3>Gestión de Profesores</h3>
+                            <p>Después de crear divisiones, el siguiente paso es crear cuentas de profesor y
+                                asignarlas a las divisiones correspondientes. Esto asegura que los profesores solo
+                                puedan gestionar cursos dentro de su división asignada.</p>
+                        </li>
+                        <li>
+                            <h3>Registro de Estudiantes</h3>
+                            <p>Con las divisiones y los profesores en su lugar, el siguiente paso es registrar a los
+                                estudiantes. Los estudiantes podrán ver y solicitar inscripción en los cursos
+                                disponibles dentro de las divisiones.</p>
+                        </li>
+                        <li>
+                            <h3>Creación de Cursos</h3>
+                            <p>Los profesores pueden iniciar sesión en la plataforma y crear cursos dentro de sus
+                                divisiones. Los cursos deben contener detalles como el nombre del curso, la
+                                descripción, y cualquier requisito necesario para la inscripción.</p>
+                        </li>
+                        <li>
+                            <h3>Inscripción en Cursos</h3>
+                            <p>Los estudiantes pueden iniciar sesión y ver los cursos disponibles. Pueden solicitar
+                                inscripción en los cursos de su interés. Los profesores recibirán estas solicitudes
+                                y tendrán la opción de aceptar o rechazar cada una de ellas.</p>
+                        </li>
+                    </ol>
+                </div>
                 <div class="endpoint-container">
                     <div class="endpoint-left-column">
                         <h1>Endpoints</h1>
-                        <div id="endpoint-list"></div>
+                        <div id="endpoint-list"></div> <!-- LISTA DE ENDPOINTS -->
                     </div>
                     <div class="endpoint-right-column">
                         <img src="./GoEs_Logo.png" alt="GSoftware4All Logo App" class="endpoint-image">
@@ -89,11 +326,6 @@
                         <pre id="endpoint-error"></pre>
                     </div>
                 </div>
-            </div>
-
-            <div id="contact" class="content-section">
-                <h1>Contacto</h1>
-                <p>Puedes contactarnos en example@example.com</p>
             </div>
 
             <!-- TOPBAR -->

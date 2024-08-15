@@ -544,3 +544,109 @@ button.reject-btn {
     max-width: 100%;
     height: auto;
 }
+
+.endpoint-middle-column h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.endpoint-middle-column p, .endpoint-middle-column ol, .endpoint-middle-column ul {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.endpoint-middle-column ol {
+    margin-left: 20px;
+}
+
+.endpoint-middle-column ol li {
+    margin-bottom: 15px;
+}
+
+.endpoint-middle-column ol li h3 {
+    font-size: 18px;
+    color: #444;
+}
+
+.endpoint-middle-column h2 {
+    margin-top: 30px;
+    font-size: 20px;
+    color: #333;
+}
+
+.endpoint-middle-column ul {
+    margin-left: 20px;
+}
+
+.endpoint-middle-column ul li {
+    margin-bottom: 10px;
+}
+
+#container_home {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+#container_home h1, #container_home h2, #container_home h3 {
+    color: #333;
+}
+
+#container_home p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+}
+
+#container_home ol {
+    margin-left: 20px;
+}
+
+#container_home table {
+    width: 70%;
+    border-collapse: collapse;
+    margin: 20px auto; /* Esto centra la tabla */
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container_home_h3 {
+    text-align: center; /* Esto centra el texto del encabezado */
+    margin-top: 40px; /* Opcional: Ajusta el espacio arriba y abajo del encabezado */
+}
+
+
+#container_home table, #container_home th, #container_home td {
+    border: 1px solid #ddd;
+}
+
+#container_home th, #container_home td {
+    padding: 12px;
+    text-align: left;
+}
+
+#container_home th {
+    background-color: #f2f2f2;
+}
+
+#container_home ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#container_home ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+#container_home ul li:last-child {
+    border-bottom: none;
+}

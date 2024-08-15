@@ -482,7 +482,7 @@ const endpoints = {
             "Solo los usuarios con rol de administrador pueden acceder a este endpoint.",
             "path": "/divisions",
             "method": "POST",
-            "parameters": "Header",
+            "parameters": "Header, Body",
             "headers": "Authorization: Bearer <token>",
             "body": `
             {
@@ -532,7 +532,7 @@ const endpoints = {
             "Si la división se encuentra y se actualiza con éxito, se devuelve la información actualizada; de lo contrario, se devuelve un mensaje de error. La solicitud requiere autenticación y privilegios de administrador.",
             "path": "/divisions/:DivisionId",
             "method": "PUT",
-            "parameters": "Header, Parámetro de ruta",
+            "parameters": "Header, Body, Parámetro de ruta",
             "headers": "Authorization: Bearer <token>",
             "body": `
             {
@@ -573,7 +573,7 @@ const endpoints = {
             "error": `
             404 Not Found - División no encontrada
             500 Internal Server Error - Error al eliminar la división`
-        },
+        }
     ],
     //PROFESORES    PROFESORES  PROFESORES  PROFESORES  PROFESORES
     "Profesores": [
@@ -751,7 +751,7 @@ const endpoints = {
             "error": `
             404 Not Found - Profesor no encontrado
             500 Internal Server Error - Error al eliminar el profesor`
-        },
+        }
     ],
     //ESTUDIANTES   ESTUDIANTES ESTUDIANTES ESTUDIANTES ESTUDIANTES
     "Estudiantes": [
@@ -1706,6 +1706,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // DOCUMENTACIÓN    DOCUMENTACIÓN   DOCUMENTACIÓN   DOCUMENTACIÓN   DOCUMENTACIÓN
     const endpointList = document.getElementById('endpoint-list');
 
     for (const category in endpoints) {
