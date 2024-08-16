@@ -43,7 +43,10 @@ const endpoints = {
             "path": "/courses/my-courses",
             "method": "GET",
             "parameters": "Header",
-            "headers": "Authorization: Bearer <token>",
+            "headers": `
+            Authorization: Bearer <token>
+            x-access-token = {{TOKEN}}
+            `,
             "body": "N/A",
             "response": `{
             "status": 200,
@@ -86,7 +89,10 @@ const endpoints = {
             "path": "/courses",
             "method": "POST",
             "parameters": "Header, Body",
-            "headers": "Authorization: Bearer <token>",
+            "headers": `
+            Authorization: Bearer <token>
+            x-access-token = {{TOKEN}}
+            `,
             "body": `
             {
                 "name": "Introducción a Kotlin",
@@ -163,7 +169,10 @@ const endpoints = {
             "path": "/courses/by-division",
             "method": "POST",
             "parameters": "Header, Body",
-            "headers": "Authorization: Bearer <token>",
+            "headers": `
+            Authorization: Bearer <token>
+            x-access-token = {{TOKEN}}
+            `,
             "body": `
             {
                 "divisionName": "IDGS"
@@ -206,7 +215,10 @@ const endpoints = {
             "path": "/courses/:courseId",
             "method": "PUT",
             "parameters": "Header, Parámetro de ruta, Body",
-            "headers": "Authorization: Bearer <token>",
+            "headers": `
+            Authorization: Bearer <token>
+            x-access-token = {{TOKEN}}
+            `,
             "body": `
             {
                 "name": "Introducción a PHP",
@@ -247,7 +259,10 @@ const endpoints = {
             "path": "/courses/:courseId",
             "method": "DELETE",
             "parameters": "Header, Parámetro de ruta",
-            "headers": "Authorization: Bearer <token>",
+            "headers": `
+            Authorization: Bearer <token>
+            x-access-token = {{TOKEN}}
+            `,
             "body": "N/A",
             "response": `{
             "status": 200,
@@ -268,7 +283,10 @@ const endpoints = {
             "path": "/courses/:courseId/enroll",
             "method": "POST",
             "parameters": "Header, Parámetro de ruta",
-            "headers": "Authorization: Bearer <token>",
+            "headers": `
+            Authorization: Bearer <token>
+            x-access-token = {{TOKEN}}
+            `,
             "body": "N/A",
             "response": `{
             "status": 201,
@@ -294,7 +312,10 @@ const endpoints = {
             "path": "/courses/pending-requests",
             "method": "GET",
             "parameters": "Header",
-            "headers": "Authorization: Bearer <token>",
+            "headers": `
+            Authorization: Bearer <token>
+            x-access-token = {{TOKEN}}
+            `,
             "body": "N/A",
             "response": `{
             "status": 200,
@@ -328,7 +349,10 @@ const endpoints = {
             "path": "/request/:requestId",
             "method": "PUT",
             "parameters": "Header, Parámetro de ruta, Body",
-            "headers": "Authorization: Bearer <token>",
+            "headers": `
+            Authorization: Bearer <token>
+            x-access-token = {{TOKEN}}
+            `,
             "body": `
             {
                 "status": "approved"  // Puede ser "approved" o "rejected"
@@ -387,7 +411,10 @@ const endpoints = {
             "path": "/courses/remove-student/:courseId",
             "method": "PUT",
             "parameters": "Header, Parámetros de ruta, Body",
-            "headers": "Authorization: Bearer <token>",
+            "headers": `
+            Authorization: Bearer <token>
+            x-access-token = {{TOKEN}}
+            `,
             "body": `
             {
                 "studentEmail": "tony@gmail.com"
@@ -422,7 +449,10 @@ const endpoints = {
             "path": "/courses/student/requests",
             "method": "GET",
             "parameters": "Header",
-            "headers": "Authorization: Bearer <token>",
+            "headers": `
+            Authorization: Bearer <token>
+            x-access-token = {{TOKEN}}
+            `,
             "body": "N/A",
             "response": `{
             "status": 200,
@@ -483,7 +513,10 @@ const endpoints = {
             "path": "/divisions",
             "method": "POST",
             "parameters": "Header, Body",
-            "headers": "Authorization: Bearer <token>",
+            "headers": `
+            Authorization: Bearer <token>
+            x-access-token = {{TOKEN}}
+            `,
             "body": `
             {
                 "name": "IDGS",
@@ -533,7 +566,10 @@ const endpoints = {
             "path": "/divisions/:DivisionId",
             "method": "PUT",
             "parameters": "Header, Body, Parámetro de ruta",
-            "headers": "Authorization: Bearer <token>",
+            "headers": `
+            Authorization: Bearer <token>
+            x-access-token = {{TOKEN}}
+            `,
             "body": `
             {
                 "name": "Ambiental",
@@ -561,7 +597,10 @@ const endpoints = {
             "path": "/divisions/:DivisionId",
             "method": "DELETE",
             "parameters": "Header, Parámetro de ruta",
-            "headers": "Authorization: Bearer <token>",
+            "headers": `
+            Authorization: Bearer <token>
+            x-access-token = {{TOKEN}}
+            `,
             "body": "N/A",
             "response": `{
             "status": 200,
@@ -659,7 +698,10 @@ const endpoints = {
             "path": "/professors/",
             "method": "POST",
             "parameters": "Header, Body",
-            "headers": "Authorization: Bearer <token>",
+            "headers": `
+            Authorization: Bearer <token>
+            x-access-token = {{TOKEN}}
+            `,
             "body": `
             {
                 "name": "Carlos",
@@ -699,7 +741,10 @@ const endpoints = {
             "path": "/professors/:professorId",
             "method": "PUT",
             "parameters": "Header, Parámetro de ruta, Body",
-            "headers": "Authorization: Bearer <token>",
+            "headers": `
+            Authorization: Bearer <token>
+            x-access-token = {{TOKEN}}
+            `,
             "body": `
             {
                 "name": "Gilbert",
@@ -739,7 +784,10 @@ const endpoints = {
             "path": "/professors/:professorId",
             "method": "DELETE",
             "parameters": "Header, Parámetro de ruta",
-            "headers": "Authorization: Bearer <token>",
+            "headers": `
+            Authorization: Bearer <token>
+            x-access-token = {{TOKEN}}
+            `,
             "body": "N/A",
             "response": `{
             "status": 200,
@@ -838,7 +886,10 @@ const endpoints = {
             "path": "/students",
             "method": "POST",
             "parameters": "Header, Body",
-            "headers": "Authorization: Bearer <token>",
+            "headers": `
+            Authorization: Bearer <token>
+            x-access-token = {{TOKEN}}
+            `,
             "body": `
             {
                 "name": "Flora",
@@ -879,7 +930,10 @@ const endpoints = {
             "path": "/students/:studentId",
             "method": "PUT",
             "parameters": "Header, Parámetro de ruta, Body",
-            "headers": "Authorization: Bearer <token>",
+            "headers": `
+            Authorization: Bearer <token>
+            x-access-token = {{TOKEN}}
+            `,
             "body": `
             {
                 "name": "Sona",
@@ -919,7 +973,10 @@ const endpoints = {
             "path": "/students/:studentId",
             "method": "DELETE",
             "parameters": "Header, Parámetro de ruta",
-            "headers": "Authorization: Bearer <token>",
+            "headers": `
+            Authorization: Bearer <token>
+            x-access-token = {{TOKEN}}
+            `,
             "body": "N/A",
             "response": `{
             "status": 200,
